@@ -1,0 +1,34 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async function ({ page }) {
+  await page.goto('https://todomvc.com/examples/react/dist/#/active');
+  await page.getByTestId('text-input').click();
+  await page.getByTestId('text-input').fill('payment mode');
+  await page.getByTestId('text-input').press('Enter');
+  await page.getByTestId('text-input').fill('payment transfered');
+  await page.getByTestId('text-input').press('Enter');
+  await page.getByRole('listitem').filter({ hasText: 'payment transfered' }).getByTestId('todo-item-toggle').check();
+  await page.goto('https://todomvc.com/examples/react/dist/#/completed');
+  await expect(page.getByRole('link', { name: 'All' })).toBeVisible();
+  await expect(page.getByTestId('text-input')).toBeEmpty();
+  await page.getByTestId('text-input').click();
+  await page.getByTestId('text-input').fill('test code');
+  await page.getByTestId('text-input').press('Enter');
+  await page.getByRole('link', { name: 'All' }).click();
+  await page.getByRole('listitem').filter({ hasText: 'test code' }).getByTestId('todo-item-toggle').check();
+  await page.getByRole('button', { name: 'Clear completed' }).click();
+  await page.getByRole('link', { name: 'All' }).dblclick();
+  await page.getByRole('link', { name: 'All' }).click();
+  await page.getByTestId('todo-item-toggle').check();
+  await page.getByRole('link', { name: 'Active' }).click();
+  await page.getByTestId('text-input').click();
+  await page.getByTestId('text-input').fill('payment code');
+  await page.getByTestId('text-input').press('Enter');
+  await page.getByTestId('text-input').fill('lays');
+  await page.getByTestId('text-input').press('Enter');
+  await page.getByTestId('text-input').fill('needs ');
+  await page.getByTestId('text-input').press('Enter');
+  await page.getByText('needs').click();
+  await page.getByRole('listitem').filter({ hasText: 'needs' }).getByTestId('todo-item-toggle').check();
+  await page.goto('https://todomvc.com/examples/react/dist/#/active');
+});

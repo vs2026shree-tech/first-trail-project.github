@@ -1,0 +1,27 @@
+[
+    {
+        "Name":"Michale",
+        "Company":"Infosys",
+        "MailAddress" : "michale@gmail.com",
+        "Password":"micahle@123",
+       "Confirm Password":"micahle@123"
+        
+    },
+    {
+        "Name":"Michale1",
+        "Company":"Info system",
+        "MailAddress" : "michale1@gmail.com",
+        "Password":"micahle@1234",
+       "Confirm Password":"micahle@1234"
+    },
+    {
+        
+        "Name":"Michale2",
+        "Company":"Info tech", 
+        "MailAddress" : "michale2@gmail.com",
+        "Password":"micahle@12345",
+       "Confirm Password":"micahle@12345"
+        
+    }  
+
+]
